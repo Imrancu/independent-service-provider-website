@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "serviceName": "Invisalign",
+        "description": "Crooked smile? Invisalign is the best way to straighten your smile without interfering with your day-to-day life. Invisalign gradually moves your teeth using a series of custom-fitted, removable aligners. Invisalign aligners are nearly invisible and very comfortable to wear.",
+        "price": "$500"
+    },
+    {
+        "id": 2,
+        "serviceName": "Dental Veneers",
+        "description": "Many people are discovering the benefits of veneers. Veneers are thin coverings that are placed over the front part of the teeth. Veneers are placed on teeth that are crooked, poorly shaped, or severely discolored. They may also be used to lighten teeth that are yellow or have a gray cast.",
+        "price": "$300"
+    },
+    {
+        "id": 3,
+        "serviceName": "Teeth Cleanings",
+        "description": "You should visit the dentist every six months for teeth cleanings. Tartar is a hard buildup of plaque that forms on the teeth. Tartar forms below and above the gum line. The only way to remove tartar is to see a dentist for a professional teeth cleaning. Regular teeth cleanings are important to maintaining healthy teeth and gums.",
+        "price": "$500"
+    }
+]

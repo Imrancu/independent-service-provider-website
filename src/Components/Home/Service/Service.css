@@ -1,0 +1,10 @@
+.btn-color{
+    background: #00626F;
+    color: white;
+}
+.btn-color:hover{
+    color: cornsilk;
+}
+.hover-style:hover{
+    border: 1px solid rgb(197, 197, 197) !important;
+}

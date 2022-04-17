@@ -3,9 +3,9 @@ import { Carousel } from 'react-bootstrap';
 import img1 from '../../../images/slider1.png';
 import img2 from '../../../images/slider2.png';
 import img3 from '../../../images/slider3.png';
-import './Slider.css';
+import './Banner.css';
 
-const Slider = () => {
+const Banner = () => {
 
   const [index, setIndex] = useState(0);
 
@@ -55,4 +55,4 @@ const Slider = () => {
   );
 };
 
-export default Slider;
+export default Banner;

@@ -1,0 +1,19 @@
+.content{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 50px;
+}
+.text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.image{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    
+}
+.image img{
+    border-radius: 10px;
+}
