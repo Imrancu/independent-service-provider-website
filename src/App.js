@@ -7,6 +7,7 @@ import Footer from './Components/Footer/Footer';
 import Home from './Components/Home/Home/Home';
 import Login from './Components/Login/Login/Login';
 import Register from './Components/Login/Register/Register';
+import RequireAuth from './Components/Login/RequireAuth/RequireAuth';
 import Navbar from './Components/Navbar/Navbar';
 import NotFoundPage from './Components/NotFoundPage/NotFoundPage';
 
@@ -20,7 +21,11 @@ function App() {
         <Route path='/blog' element={<Blog/>}></Route>
         <Route path='/about' element={<About/>}></Route>
         <Route path='/login' element={<Login/>}></Route>
-        <Route path='/checkout/:checkoutId' element={<Checkout/>}></Route>
+        <Route path='/checkout/:checkoutId' element={
+          <RequireAuth>
+            <Checkout/>
+          </RequireAuth>
+        }></Route>
         <Route path='/login' element={<Login/>}></Route>
         <Route path='/register' element={<Register/>}></Route>
         <Route path='*' element={<NotFoundPage/>}></Route>
