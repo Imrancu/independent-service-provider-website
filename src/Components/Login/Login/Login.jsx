@@ -1,23 +1,28 @@
 import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import auth from '../../../Firebase/Firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import './Login.css';
+
 
 const Login = () => {
     const emailRef = useRef('');
     const passwordRef = useRef('');
     const navigate = useNavigate();
-
     const location = useLocation();
+
+    const [sendPasswordResetEmail, sending, resetError] = useSendPasswordResetEmail(
+        auth
+    );
     const from = location.state?.from?.pathname || "/";
 
     const [
         signInWithEmailAndPassword,
         user,
-        loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
@@ -32,7 +37,22 @@ const Login = () => {
         signInWithEmailAndPassword(email, password);
     }
     const goToRegister = event => {
-        navigate('/register')
+        navigate('/')
+    }
+
+    const email = emailRef.current.value;
+    const resetPassword = async () => {
+        await sendPasswordResetEmail(email)
+        toast('Wow I have done!')
+
+    }
+
+    if (error) {
+        return (
+            <div>
+                <p>Error: {error.message}</p>
+            </div>
+        );
     }
     return (
         <div className='container'>
@@ -54,6 +74,8 @@ const Login = () => {
                     </Button>
                 </Form>
                 <p className='text-dark mt-4'>New to Dental Solution? <Link to="/register" onClick={goToRegister} className="text-success text-decoration-none">Please Register</Link></p>
+                <p className='text-dark mt-4'>Forgot Password? <button onClick={resetPassword} className="text-success btn btn-link text-decoration-none">Reset Your Password</button></p>
+                <ToastContainer />
             </div>
 
         </div>

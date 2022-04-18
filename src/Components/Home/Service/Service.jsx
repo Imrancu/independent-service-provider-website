@@ -3,10 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import './Service.css';
 
 const Service = ({ service }) => {
-    const { id, serviceName, description, price, img } = service;
+    const { serviceName, description, price, img } = service;
     const navigate = useNavigate();
     const goToCheckout = id => {
-        navigate(`/checkout/${id}`);
+        navigate('/checkout');
 
     }
     return (
@@ -18,7 +18,7 @@ const Service = ({ service }) => {
                         <h5 className="card-title my-4">{serviceName}</h5>
                         <p title={description} className="card-text text-dark">{description.slice(0, 200)}...</p>
                         <p className="card-text my-3"><small className="text-dark">Price: ${price}</small></p>
-                        <button onClick={() => goToCheckout(id)} className="btn btn-color">Book Now</button>
+                        <button onClick={goToCheckout} className="btn btn-color">Book Now</button>
                     </div>
                 </div>
             </div>

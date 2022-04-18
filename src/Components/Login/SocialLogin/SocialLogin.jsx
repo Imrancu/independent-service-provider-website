@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import auth from '../../../Firebase/Firebase.init';
 
 const SocialLogin = () => {
-    const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+    const [signInWithGoogle, user, error] = useSignInWithGoogle(auth);
     const navigate = useNavigate();
 
     let errorMessage;
@@ -14,7 +14,7 @@ const SocialLogin = () => {
         errorMessage = <p className='text-danger'>Error: {error.message}</p>
     };
     if (user) {
-        navigate('/home')
+        navigate('/checkout')
     }
 
     return (
