@@ -2,7 +2,6 @@ import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import auth from '../../../Firebase/Firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
@@ -37,22 +36,7 @@ const Login = () => {
         signInWithEmailAndPassword(email, password);
     }
     const goToRegister = event => {
-        navigate('/')
-    }
-
-    const email = emailRef.current.value;
-    const resetPassword = async () => {
-        await sendPasswordResetEmail(email)
-        toast('Wow I have done!')
-
-    }
-
-    if (error) {
-        return (
-            <div>
-                <p>Error: {error.message}</p>
-            </div>
-        );
+        navigate('/checkout')
     }
     return (
         <div className='container'>
@@ -74,8 +58,8 @@ const Login = () => {
                     </Button>
                 </Form>
                 <p className='text-dark mt-4'>New to Dental Solution? <Link to="/register" onClick={goToRegister} className="text-success text-decoration-none">Please Register</Link></p>
-                <p className='text-dark mt-4'>Forgot Password? <button onClick={resetPassword} className="text-success btn btn-link text-decoration-none">Reset Your Password</button></p>
-                <ToastContainer />
+                {/* <p className='text-dark mt-4'>Forgot Password? <button onClick={resetPassword} className="text-success btn btn-link text-decoration-none">Reset Your Password</button></p>
+                <ToastContainer /> */}
             </div>
 
         </div>
